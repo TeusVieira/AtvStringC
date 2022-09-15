@@ -1,0 +1,91 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+#define TAM_NOME 50
+
+int main(int argc, char const *argv[])
+{
+
+    char nome1[TAM_NOME],
+         nome2[TAM_NOME];
+        
+
+    int qt_vogais = 0 ,
+        qt_vogais2 = 0;
+
+         printf("DIGITE O PRIMEIRO NOME: ");
+        scanf("%s[^\n]", nome1);
+        fflush(stdin);
+        printf("DIGITE O SEGUNDO NOME: ");
+        scanf("%s[^\n]", nome2);
+        fflush(stdin);
+
+        //Item A
+        int qt_nome1 = strlen(nome1);
+        int qt_nome2 = strlen(nome2);
+        printf("%s tem %i letras.\n",nome1, qt_nome1);
+        printf("%s tem %i letras.\n",nome2, qt_nome2);
+
+        //Item BB
+        if(strcmp(nome1, nome2) == 0){
+            printf("Os nomes sao mermigual!!\n");
+        }else{
+            printf("Nada haver, esses dois\n");
+        }
+
+        //Item C
+
+     
+        for(int i = 0; i < qt_nome1; i++)
+            {
+
+            if(nome1[i] == 'a' || nome1[i] == 'e' || nome1[i] == 'i' || nome1[i] == 'o' || nome1[i] =='u' || 
+            nome1[i] == 'A' || nome1[i] == 'E' || nome1[i] == 'I' || nome1[i] == 'O' || nome1[i] =='U')
+            {
+                qt_vogais++;
+            }
+                }
+         
+         for (int i = 0; i < qt_nome2; i++)
+          {
+            if(nome2[i] == 'a' || nome2[i] == 'e' || nome2[i] == 'i' || nome2[i] == 'o' || nome2[i] =='u' || 
+            nome2[i] == 'A' || nome2[i] == 'E' || nome2[i] == 'I' || nome2[i] == 'O' || nome2[i] =='U'){
+                qt_vogais2++;
+            }
+        
+            }
+    
+        
+        printf("Tem %i Vogais em %s\n", qt_vogais, nome1);
+        printf("Tem %i Vogais em %s\n", qt_vogais2, nome2);
+
+
+        //ITEM D
+
+        for(int l = qt_nome2 - 1; l >= 0; l--){
+            printf("%c", nome2[l]);
+        }
+ 
+        //ITEM E de Elegante
+
+        int TOMANUCU = qt_nome1 + qt_nome2;
+        char nome_aux[TAM_NOME + 1];
+        strcat(nome_aux, nome1);
+        strcat(nome_aux, nome2);
+        
+        
+        printf("\n%s\n", nome_aux);
+
+        //ITEM F
+        int qt_nome3 = strlen(nome_aux);
+        for (int i = 0; i <qt_nome3 ; i++)
+        {
+            if(nome_aux[i] != ' '){
+                printf("%c", nome_aux[i]);
+            }
+        }
+        
+
+    return 0;
+}
