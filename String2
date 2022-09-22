@@ -1,0 +1,93 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+#define TAM_NOME 50
+
+void ler_quant_nome(char nome1[],char nome2[],int qt_letras, int qt_letras2);
+void primeiro_ultimo(char nome1[],char nome2[],int qt_letras, int qt_letras2);
+
+int main(int argc, char const *argv[])
+{
+    char nome1[TAM_NOME] ,
+         nome2[TAM_NOME] ;
+
+
+        printf("PRIMEIRO NOME: \n");
+        fgets(nome1, TAM_NOME, stdin);
+        fflush(stdin);
+        printf("SEGUNDO NOME: \n");
+        fgets(nome2, TAM_NOME, stdin);
+        fflush(stdin);
+
+
+    int qt_letras = strlen(nome1) - 1;
+    int qt_letras2 = strlen(nome2) - 1;
+
+        ler_quant_nome(nome1, nome2, qt_letras, qt_letras2);
+        primeiro_ultimo(nome1, nome2, qt_letras, qt_letras2);
+
+    return 0;
+}
+
+void ler_quant_nome(char nome1[],char nome2[],int qt_letras, int qt_letras2){
+
+
+    int palavra = 1;
+    int palavra2 = 1;
+
+    for (int i = 0; i < qt_letras; i++)
+    {
+        if(nome1[i] == ' '){
+            palavra++;
+        }
+    }
+    
+    for (int i = 0; i < qt_letras2; i++)
+    {
+        if(nome2[i] == ' '){
+            palavra2++;
+        }
+    }
+
+    printf("quantidades de palavras da 1 %i \n", palavra);
+    printf("quantidades de palavras da 2 %i \n", palavra2);
+
+
+}
+void primeiro_ultimo(char nome1[],char nome2[],int qt_letras, int qt_letras2){
+
+    int i = 0;
+    int j = qt_letras;
+    int m = qt_letras2;
+    while (nome1[i] != ' ')
+    {
+        printf("%c", nome1[i]);
+        i++;
+    }
+    i = 0;
+    while (nome2[i] != ' ')
+    {
+        printf("%c", nome2[i]);
+        i++;
+    }
+    while (nome1[j] != ' ')
+    {
+        j--;
+    }
+    for (int p = j; p < qt_letras; p++)
+    {
+        printf("%c", nome1[p]);
+    }
+    
+    while (nome2[m] != ' ')
+    {
+        m--;
+    }
+    for (int v = m; v < qt_letras2; v++)
+    {
+        printf("%c", nome2[v]);
+    }
+    
+
+}
