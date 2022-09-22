@@ -69,8 +69,8 @@ int main(int argc, char const *argv[])
  
         //ITEM E de Elegante
 
-        int TOMANUCU = qt_nome1 + qt_nome2;
-        char nome_aux[TAM_NOME + 1];
+        int TOMANUCU = strlen(nome1) + strlen(nome2);
+        char nome_aux[150];
         strcat(nome_aux, nome1);
         strcat(nome_aux, nome2);
         
@@ -79,12 +79,27 @@ int main(int argc, char const *argv[])
 
         //ITEM F
         int qt_nome3 = strlen(nome_aux);
-        for (int i = 0; i <qt_nome3 ; i++)
+        int conta_a_dor = 0;
+        for (int i = 0; i < TOMANUCU; i++)
         {
-            if(nome_aux[i] != ' '){
+            for (int j = 0; j < TOMANUCU; j++)
+            {
+                if (nome_aux[i] == nome_aux[j])
+                {
+                    conta_a_dor++;
+                }
+                
+            }
+            
+            if (conta_a_dor == 1)
+            {
                 printf("%c", nome_aux[i]);
             }
+            conta_a_dor = 0;
+            
         }
+        
+        
         
 
     return 0;
